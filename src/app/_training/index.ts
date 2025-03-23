@@ -9,6 +9,8 @@
  * Looping
  */
 
+import { init } from "./primitive";
+
 /* Typescript */
 
 // var a = "hello";
@@ -18,7 +20,6 @@
 // String | Number | Date | Boolean  | null | undefined (Privitive)
 // Array | Object (Derived)
 // Let or Const
-
 /** String: string is a primitive data type used to represent textual data. */
 const name: string = "santhanam";
 let age: number = 123;
@@ -77,6 +78,7 @@ export function trainingInit() {
   console.info("initialization.");
   console.info("adding some thing new");
   console.info("*********");
+  init();
   // const name = printHelloWorld("hello", "world");
   // console.info("*****", name);
   //   console.info("*********");
