@@ -30,18 +30,23 @@ export function shop() {
  * Phase 2:
  * See or think about how you can do this for multiple users.
  */
-const acount = 100;
+//
+const account = 100;
 export function ATMChallange() {
   function ATM(action: string, amount: number) {
     if (action == "debit") {
-      return acount + amount;
+      return `you deposited $${amount}", your new balace is $${
+        account + amount
+      }.`;
     }
-    if (action == "credit" && acount > amount) {
-      return acount - amount;
+    if (action == "credit" && account > amount) {
+      return `you credited $${amount},your new balence is $${
+        account - amount
+      }.`;
     } else {
-      return "you don't have suffient money.";
+      return `you don't have suffient money.You wish to take out $${amount} but you only have $${account}.`;
     }
   }
-
-  console.info(ATM("debit", 111));
+  console.info(ATM("credit", 111));
+  console.info("your transation is complete. Have a good day.");
 }
