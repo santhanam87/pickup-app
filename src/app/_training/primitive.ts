@@ -1,12 +1,8 @@
 // Primitive data types are the built-in data types provided by all programming languages.
-
-import { randomBytes } from "crypto";
-console.info(randomBytes);
-//I did this so there will be no error
-//____________
 // Boolean| String | Date | number | null | undefined
-//you can reassign let but not const
-export function init() {
+// you can reassign let but not const
+
+export function primitiveDataTypes() {
   //Boolean: Represents truth values, true or false.
   const IsAdult: boolean = true;
   console.info(IsAdult); //will print true
