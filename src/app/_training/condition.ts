@@ -30,7 +30,18 @@ export function shop() {
  * Phase 2:
  * See or think about how you can do this for multiple users.
  */
-
+const acount = 100;
 export function ATMChallange() {
-  console.info("Welcome to the ATM Challenge.");
+  function ATM(action: string, amount: number) {
+    if (action == "debit") {
+      return acount + amount;
+    }
+    if (action == "credit" && acount > amount) {
+      return acount - amount;
+    } else {
+      return "you don't have suffient money.";
+    }
+  }
+
+  console.info(ATM("debit", 111));
 }
