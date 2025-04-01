@@ -35,16 +35,16 @@ const account = 100;
 export function ATMChallange() {
   function ATM(action: string, amount: number) {
     if (action == "debit") {
-      return `you deposited ${amount}", your new balace is ${
+      return `you deposited $${amount}", your new balace is $${
         account + amount
-      }$.`;
+      }.`;
     }
     if (action == "credit" && account > amount) {
-      return `you credited ${amount}$,your new balence is ${
+      return `you credited $${amount},your new balence is $${
         account - amount
-      }$.`;
+      }.`;
     } else {
-      return `you don't have suffient money.You wish to take out ${amount}$ but you only have ${account}$.`;
+      return `you don't have suffient money.You wish to take out $${amount} but you only have $${account}.`;
     }
   }
   console.info(ATM("credit", 111));
