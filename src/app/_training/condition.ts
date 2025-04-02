@@ -31,6 +31,23 @@ export function shop() {
  * See or think about how you can do this for multiple users.
  */
 
-export function ATMChallange() {
-  console.info("Welcome to the ATM Challenge.");
+export function ATMChallange(AccountType:"credit"|"debit",amount:number,balance:number)
+ {
+  console.info("Welcome to the ATM Challenge");
+  let remaining =balance;
+  if (AccountType=="debit"){
+    if (balance>=amount){
+      remaining=balance-amount;
+      console.info("amount withdrawn");
+      return `remainingAmount:${remaining}`;
+    }
+    else{
+      return "You have insufficient balance";
+    }}
+  else if(AccountType=="credit") {
+    return remaining;
+  }
+  else {
+    return "Invalid Account type"
+  }
 }
