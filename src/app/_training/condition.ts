@@ -2,6 +2,9 @@
 // else if there is tomoto then by tomoto.
 // else return back.
 
+import { Console } from "console";
+import { Black_And_White_Picture, Coming_Soon } from "next/font/google";
+
 export function shop() {
   const onion = 3;
   const isOnionIsGood = true;
@@ -31,13 +34,13 @@ export function shop() {
  * See or think about how you can do this for multiple users.
  */
 
-export function ATMChallange(AccountType:"credit"|"debit",amount:number,balance:number)
+export function ATMChallange()
  {
-  console.info("Welcome to the ATM Challenge");
-  let remaining =balance;
+  function ATM1(AccountType:"credit"|"debit",amount:number){
   if (AccountType=="debit"){
+    let balance:number=1000;
     if (balance>=amount){
-      remaining=balance-amount;
+      const remaining=balance-amount;
       console.info("amount withdrawn");
       return `remainingAmount:${remaining}`;
     }
@@ -45,9 +48,52 @@ export function ATMChallange(AccountType:"credit"|"debit",amount:number,balance:
       return "You have insufficient balance";
     }}
   else if(AccountType=="credit") {
-    return remaining;
+    let balance=10000;
+    const remaining=balance-amount;
+    return `remainingAmount:${remaining}`;
   }
   else {
     return "Invalid Account type"
   }
 }
+console.info("debit",100);
+}
+
+//ATMChallenge for multiple users 
+interface accounts{
+  userID:string;
+  balance:number;
+}
+const users: Record<string, accounts>={
+  user1: {userID:"user1",balance:5000},
+  user2: {userID:"user2",balance:10000},
+  user3: {userID:"user3",balance:200}
+};
+export function ATMChallange2()
+ {
+  function ATM2(userID:string,AccountType:"credit"|"debit",amount:number){
+    const user = users[userID];
+    if(!user){
+      console.info(`user is not found`);
+      return;
+  }
+    let remaining =user.balance;
+    if (AccountType=="debit"){
+      if (user.balance>=amount){
+        remaining=user.balance-amount;
+        console.info("amount withdrawn");
+        return `remainingAmount:${remaining}`;
+    }
+      else{
+        return "You have insufficient balance";
+    }
+  }
+  else if(AccountType=="credit") {
+    return `remainingAmount:${remaining}`;
+  }
+  else {
+    return "Invalid Account type"
+  }
+}
+console.info(ATM2("user1","debit",100));
+ }
