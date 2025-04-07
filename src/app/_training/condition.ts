@@ -50,3 +50,13 @@ export function ATMChallange() {
   console.info(ATM("credit", 111));
   console.info("your transation is complete. Have a good day.");
 }
+/**Phase 2
+ * multi user
+ * credit is -
+ * debit is +
+ */
+const users = [
+  { name: "shravan", accountBalence: 100 },
+  { name: "leo", accountBalence: 500 },
+  { name: "santhanam", accountBalence: 2000 },
+];
