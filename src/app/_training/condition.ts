@@ -56,7 +56,7 @@ export function ATMChallange()
     return "Invalid Account type"
   }
 }
-console.info("debit",100);
+console.info(ATM1("debit",100));
 }
 
 //ATMChallenge for multiple users 
