@@ -65,21 +65,21 @@ export function ATMChallange2() {
       if (users[userIndex].name === user) {
         if (action === "credit" && users[userIndex].accountBalence >= amount) {
           console.info(
-            `${user} wishis to credit ${amount}$.${user}'s new balence is ${
-              users[userIndex].accountBalence - amount
-            }$  `
+            `${user} wishis to credit ${amount}$.${user}'s new balence is ${(users[
+              userIndex
+            ].accountBalence = users[userIndex].accountBalence - amount)}$  `
           );
         } else if (users[userIndex].accountBalence < amount)
           console.info(`${user} doesn't have suffitiont money`);
         if (action === "debit") {
           console.info(
-            `${user} wishis to credit ${amount}$.${user}'s new balence is ${
-              users[userIndex].accountBalence + amount
-            }`
+            `${user} wishis to debit ${amount}$.${user}'s new balence is ${(users[
+              userIndex
+            ].accountBalence = users[userIndex].accountBalence + amount)}$`
           );
         }
       }
     }
   }
-  ATM("Santhanam", "debit", 100);
+  ATM("Santhanam", "debit", 7999);
 }
