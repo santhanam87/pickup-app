@@ -1,7 +1,6 @@
 // goto shop if they have onion by 2 oninon
 // else if there is tomoto then by tomoto.
 // else return back.
-
 export function shop() {
   const onion = 3;
   const isOnionIsGood = true;
@@ -31,32 +30,56 @@ export function shop() {
  * See or think about how you can do this for multiple users.
  */
 //
-const account = 100;
-export function ATMChallange() {
-  function ATM(action: string, amount: number) {
-    if (action == "debit") {
-      return `you deposited $${amount}", your new balace is $${
-        account + amount
-      }.`;
-    }
-    if (action == "credit" && account > amount) {
-      return `you credited $${amount},your new balence is $${
-        account - amount
-      }.`;
-    } else {
-      return `you don't have suffient money.You wish to take out $${amount} but you only have $${account}.`;
-    }
-  }
-  console.info(ATM("credit", 111));
-  console.info("your transation is complete. Have a good day.");
-}
+// const account = 100;
+// export function ATMChallange() {
+//   function ATM(action: string, amount: number) {
+//     if (action == "debit") {
+//       return `you deposited $${amount}", your new balace is $${
+//         account + amount
+//       }.`;
+//     }
+//     if (action == "credit" && account > amount) {
+//       return `you credited $${amount},your new balence is $${
+//         account - amount
+//       }.`;
+//     } else {
+//       return `you don't have suffient money.You wish to take out $${amount} but you only have $${account}.`;
+//     }
+//   }
+//   console.info(ATM("credit", 111));
+//   console.info("your transation is complete. Have a good day.");
+// }
 /**Phase 2
  * multi user
  * credit is -
  * debit is +
  */
 const users = [
-  { name: "shravan", accountBalence: 100 },
-  { name: "leo", accountBalence: 500 },
-  { name: "santhanam", accountBalence: 2000 },
+  { name: "Shravan", accountBalence: 100 },
+  { name: "Leo", accountBalence: 500 },
+  { name: "Santhanam", accountBalence: 2000 },
 ];
+export function ATMChallange2() {
+  function ATM(user: string, action: string, amount: number) {
+    for (let userIndex = 0; userIndex < users.length; userIndex++) {
+      if (users[userIndex].name === user) {
+        if (action === "credit" && users[userIndex].accountBalence >= amount) {
+          console.info(
+            `${user} wishis to credit ${amount}$.${user}'s new balence is ${
+              users[userIndex].accountBalence - amount
+            }$  `
+          );
+        } else if (users[userIndex].accountBalence < amount)
+          console.info(`${user} doesn't have suffitiont money`);
+        if (action === "debit") {
+          console.info(
+            `${user} wishis to credit ${amount}$.${user}'s new balence is ${
+              users[userIndex].accountBalence + amount
+            }`
+          );
+        }
+      }
+    }
+  }
+  ATM("Santhanam", "debit", 100);
+}
