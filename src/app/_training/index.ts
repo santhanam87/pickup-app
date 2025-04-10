@@ -11,6 +11,7 @@
  * Looping
  */
 
+import { ArrayInit } from "./array";
 import { ATMChallange } from "./condition";
 import { functionsScope } from "./functions-scope";
 import { objectsAndArray } from "./object-arrays";
@@ -21,4 +22,5 @@ export function trainingInit() {
   objectsAndArray();
   //primitiveDataTypes();
   ATMChallange();
+  ArrayInit();
 }
