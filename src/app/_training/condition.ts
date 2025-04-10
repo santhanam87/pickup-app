@@ -64,18 +64,24 @@ export function ATMChallange2() {
     for (let userIndex = 0; userIndex < users.length; userIndex++) {
       if (users[userIndex].name === user) {
         if (action === "credit" && users[userIndex].accountBalence >= amount) {
+          users[userIndex].accountBalence =
+            users[userIndex].accountBalence - amount;
           console.info(
             `${user} wishis to credit ${amount}$.${user}'s new balence is ${(users[
               userIndex
-            ].accountBalence = users[userIndex].accountBalence - amount)}$  `
+            ].accountBalence = users[userIndex].accountBalence)}$  `
           );
-        } else if (users[userIndex].accountBalence < amount)
-          console.info(`${user} doesn't have suffitiont money`);
+        } else if (users[userIndex].accountBalence < amount) {
+          console.info("over draft");
+        }
         if (action === "debit") {
+          users[userIndex].accountBalence =
+            users[userIndex].accountBalence + amount;
+
           console.info(
             `${user} wishis to debit ${amount}$.${user}'s new balence is ${(users[
               userIndex
-            ].accountBalence = users[userIndex].accountBalence + amount)}$`
+            ].accountBalence = users[userIndex].accountBalence)}$`
           );
         }
       }
