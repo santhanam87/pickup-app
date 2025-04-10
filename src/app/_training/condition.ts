@@ -27,8 +27,6 @@ export function shop() {
  * if user has no balance print you dont have suffient money.
  * if it is credit
  * return your actual balance based on the available balance.
- * Phase 2:
- * See or think about how you can do this for multiple users.
  */
 //
 const account = 100;
