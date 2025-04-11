@@ -1,23 +1,3 @@
-// goto shop if they have onion by 2 oninon
-// else if there is tomoto then by tomoto.
-// else return back.
-
-export function shop() {
-  const onion = 3;
-  const isOnionIsGood = true;
-  const tomoto = 3;
-  if (onion > 0 || tomoto > 0) {
-    console.info("enter a shope");
-    if (onion > 0 && isOnionIsGood) {
-      return "I got oninons";
-    } else if (tomoto > 0) {
-      return "I got tomoto";
-    }
-  } else {
-    return "Home";
-  }
-}
-
 /**
  * ATM machine
  * Phase 1:
@@ -28,23 +8,94 @@ export function shop() {
  * if it is credit
  * return your actual balance based on the available balance.
  */
-//
-const account = 100;
-export function ATMChallange() {
-  function ATM(action: string, amount: number) {
-    if (action == "debit") {
-      return `you deposited $${amount}", your new balace is $${
-        account + amount
-      }.`;
+let  balance=10000;
+export function ATMChallange()
+ {
+  function ATM1(SelectType:"credit"|"debit",amount:number){
+  if (SelectType=="debit"){
+    if (balance>=amount){
+      balance-=amount;
+      console.info("Amount Withdrawn");
+      return `Remaining Amount:${balance}`;
     }
-    if (action == "credit" && account > amount) {
-      return `you credited $${amount},your new balence is $${
-        account - amount
-      }.`;
-    } else {
-      return `you don't have suffient money.You wish to take out $${amount} but you only have $${account}.`;
-    }
+    else{
+      return "You have insufficient balance";
+    }}
+  else if(SelectType=="credit") {
+    balance+=amount;
+    console.info("Amount Credited");
+    return `Remaining Amount:${balance}`;
   }
-  console.info(ATM("credit", 111));
-  console.info("your transation is complete. Have a good day.");
+  else {
+    return "Invalid Account type"
+  }
 }
+console.info(ATM1("debit",100));
+console.info(ATM1("credit",100));
+console.info(ATM1("debit",100));
+
+console.info("---------------------------\n");
+
+/**
+ * ATM - Phase 2
+ * User - userName, accountBalance
+ * Users will be list of user
+ * Create a method that allows user to credit or debit the money based on the username
+ * Scope, Array, Object, Method, Condition, Looping
+ * Create a data structure
+ * Clear the requirement
+ * Pseudo code
+ * Create a global scope
+ * Create a method that accepts usename, type and amount
+ * Get the user by name
+ * If type is credit update the amount return the new balance
+ * If type is debit update the amount and return the new balance and debited amount.
+ * Stick with sudo code.
+ */
+interface accounts{
+  userID:string;
+  balance:number;
+}
+const users: accounts[]= [
+   {userID: "Leo", balance: 3000 },
+   {userID:"Jeevan",balance:7000},
+   {userID:"Sanjay",balance:2000}
+];
+function findUserByName(userID: string) {
+  for (const accounts of users) {
+      if (accounts.userID === userID) {
+          return accounts;
+      }
+  }
+  return null;
+}
+
+  function ATM2(userID:string,SelectType:"credit"|"debit",amount:number){
+    const user=findUserByName(userID);
+    if(!user){
+      console.info(`${userID} is not found`);
+      return ;
+  }
+  if (SelectType=="debit"){
+    if (user.balance>=amount){
+      user.balance-=amount;
+      console.info("Amount Withdrawn");
+      return `Remaining Amount:${user.balance}`;
+    }
+    else{
+      return "You have insufficient balance";
+    }}
+  else if(SelectType=="credit") {
+    user.balance+=amount;
+    console.info("Amount Credited");
+    return `Total Amount:${user.balance}`;
+  }
+    else {
+      return "Invalid Account type"
+  }
+}
+console.info(ATM2("Leo","credit",100));
+console.info(ATM2("Jeevan","credit",2000));
+console.info(ATM2("user3","debit",3000));
+console.info(ATM2("user2","debit",4000));
+ }
