@@ -7,8 +7,6 @@
  * if user has no balance print you dont have suffient money.
  * if it is credit
  * return your actual balance based on the available balance.
- * Phase 2:
- * How you can I do this for multiple users.
  */
 let  balance=10000;
 export function ATMChallange()
@@ -38,22 +36,45 @@ console.info(ATM1("debit",100));
 
 console.info("---------------------------\n");
 
-//ATMChallenge for multiple users 
+/**
+ * ATM - Phase 2
+ * User - userName, accountBalance
+ * Users will be list of user
+ * Create a method that allows user to credit or debit the money based on the username
+ * Scope, Array, Object, Method, Condition, Looping
+ * Create a data structure
+ * Clear the requirement
+ * Pseudo code
+ * Create a global scope
+ * Create a method that accepts usename, type and amount
+ * Get the user by name
+ * If type is credit update the amount return the new balance
+ * If type is debit update the amount and return the new balance and debited amount.
+ * Stick with sudo code.
+ */
 interface accounts{
   userID:string;
   balance:number;
 }
-const users: Record<string, accounts>={
-  user1: {userID:"Leo",balance:3000},
-  user2: {userID:"Jeevan",balance:7000},
-  user3: {userID:"Sanjay",balance:2000}
-};
- 
+const users: accounts[]= [
+   {userID: "Leo", balance: 3000 },
+   {userID:"Jeevan",balance:7000},
+   {userID:"Sanjay",balance:2000}
+];
+function findUserByName(userID: string) {
+  for (const accounts of users) {
+      if (accounts.userID === userID) {
+          return accounts;
+      }
+  }
+  return null;
+}
+
   function ATM2(userID:string,SelectType:"credit"|"debit",amount:number){
-    const user = users[userID];
+    const user=findUserByName(userID);
     if(!user){
-      console.info(`user is not found`);
-      return;
+      console.info(`${userID} is not found`);
+      return ;
   }
   if (SelectType=="debit"){
     if (user.balance>=amount){
@@ -73,8 +94,8 @@ const users: Record<string, accounts>={
       return "Invalid Account type"
   }
 }
-console.info(ATM2("user1","credit",1000));
-console.info(ATM2("Sanjay","credit",2000));
+console.info(ATM2("Leo","credit",100));
+console.info(ATM2("Jeevan","credit",2000));
 console.info(ATM2("user3","debit",3000));
 console.info(ATM2("user2","debit",4000));
  }
