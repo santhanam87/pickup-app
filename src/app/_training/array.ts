@@ -75,6 +75,22 @@ export function ArrayInit() {
       [1, 2, 3],
     ],
   ];
+
+  for (let firstDim = 0; firstDim < threedDimentionalData.length; firstDim++) {
+    for (
+      let secontDim = 0;
+      secontDim < threedDimentionalData[firstDim].length;
+      secontDim++
+    ) {
+      for (
+        let thirdDim = 0;
+        thirdDim < threedDimentionalData[firstDim][secontDim].length;
+        thirdDim++
+      ) {
+        console.info(threedDimentionalData[firstDim][secontDim][thirdDim]);
+      }
+    }
+  }
 }
 
 /**
