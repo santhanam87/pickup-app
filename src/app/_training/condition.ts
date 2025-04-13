@@ -62,9 +62,9 @@ const users: accounts[]= [
    {userID:"Sanjay",balance:2000}
 ];
 function findUserByName(userID: string) {
-  for (const accounts of users) {
-      if (accounts.userID === userID) {
-          return accounts;
+  for (let i= 0; i<users.length; i++) {
+      if (users[i].userID === userID) {
+          return users[i];
       }
   }
   return null;
