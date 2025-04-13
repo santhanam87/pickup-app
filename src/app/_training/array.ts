@@ -40,11 +40,8 @@ export function ArrayInit() {
   }
 
   // Multidimenstional Array
-  const twoDim = [
-    [1, 2, 3],
-    [1, 3, 4],
-    [1, 3, 4],
-  ];
+  //const twoDim = [[1, 2, 3],[1, 3, 4],[1, 3, 4],];
+
 
   // Array manipulation
   // twoDim[1].push(5);
@@ -52,13 +49,8 @@ export function ArrayInit() {
   // twoDim[1].splice(2, 0, 5);
 
   // Array iteration
-  for (let i = 0; i < twoDim.length; i++) {
-    for (let j = 0; j < twoDim[i].length; j++) {
-      console.info(twoDim[i][j]);
-    }
-  }
 
-  const threedDimentionalData = [
+  const threeDimentionalData = [
     [
       [1, 2, 3],
       [1, 2, 3],
@@ -75,21 +67,16 @@ export function ArrayInit() {
       [1, 2, 3],
     ],
   ];
+  for (let i=0;i<threeDimentionalData.length;i++){
+    for(let j=0;j<threeDimentionalData[i].length;j++){ 
+      for(let k=0;k<threeDimentionalData[i][j].length;k++){
+        console.info(threeDimentionalData[i][j][k]);
+      }
+    }
+  }
+  for (let i=0;i<threeDimentionalData.length;i++){
+    for(let j=0;j<threeDimentionalData[i].length;j++){   
+      console.info(threeDimentionalData[i][j].join(" "));
+    }
+  }
 }
-
-/**
- * ATM - Phase 2
- * User - userName, accountBalance
- * Users will be list of user
- * Create a method that allows user to credit or debit the money based on the username
- * Scope, Array, Object, Method, Condition, Looping
- * Create a data structure
- * Clear the requirement
- * Pseudo code
- * Create a global scope
- * Create a method that accepts usename, type and amount
- * Get the user by name
- * If type is credit update the amount return the new balance
- * If type is debit update the amount and return the new balance and debited amount.
- * Stick with sudo code.
- */
