@@ -75,6 +75,7 @@ export function ArrayInit() {
       [1, 2, 3],
     ],
   ];
+  console.info(threedDimentionalData);
 }
 
 /**
@@ -92,4 +93,32 @@ export function ArrayInit() {
  * If type is credit update the amount return the new balance
  * If type is debit update the amount and return the new balance and debited amount.
  * Stick with sudo code.
+ */
+
+/**
+ * Add two martix
+ *  const a = [
+    [1, 2, 3],
+    [1, 3, 4],
+    [1, 3, 4],
+  ];
+
+  const b = [
+    [1, 2, 3],
+    [1, 3, 4],
+    [1, 3, 4],
+  ];
+
+  Solution 
+  
+  [ [2, 4, 6],
+    [2, 6, 8],
+    [2, 6, 8],]
+
+ * Matrix Multiplication
+
+    [(1,1) (1,2) (1,3)
+    (2,1) (2,2) (2,3)
+    (3,1) (3,2) (3,3)]
+ * 
  */
