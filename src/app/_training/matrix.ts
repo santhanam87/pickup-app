@@ -4,16 +4,20 @@ const matrixA: number[][] = [
   [1, 3, 4],
 ];
 const matrixB: number[][] = [
-  [1, 2, 3], // 2 - 0 = 2
-  [1, 3, 4], // 2 - 1 = 1
-  [1, 3, 4], // 2 - 2 = 0
+  [1, 2, 3],
+  [1, 3, 4],
+  [1, 3, 4],
 ];
 const matrixC: number[][] = [
   [0, 0, 0],
   [0, 0, 0],
   [0, 0, 0],
 ];
-
+const matrixD: number[][] = [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0],
+];
 export function matrixAdittion() {
   for (let matrixIndex = 0; matrixIndex < matrixA.length; matrixIndex++) {
     for (
@@ -22,29 +26,29 @@ export function matrixAdittion() {
       matrixIndex2++
     ) {
       const sum =
-        matrixA[matrixIndex][matrixIndex2] + matrixB[matrixIndex][matrixIndex];
+        matrixA[matrixIndex][matrixIndex2] + matrixB[matrixIndex][matrixIndex2];
       matrixC[matrixIndex][matrixIndex2] = sum;
     }
   }
-
-  // for (let i = 0; i < 3; i++) {
-  //   for (let j = 0; j < 3; j++) {
-  //     const total = matrixA[i][j] + matrixB[i][j];
-  //     matrixC[i][j] = total;
-  //   }
-  // }
-  /**
-   * const matrixB: number[][] = [
-  [1, 2, 3], // 2 - 0(i) = 2
-  [1, 3, 4], // 2 - 1(i) = 1
-  [1, 3, 4], // 2 - 2(i) = 0
-  ];
-  */
-  //   const matrix = [];
-  //   for (let i = 0; i < 3; i++) {
-  //     const dIndex = matrixA[i].length - i - 1;
-  //     matrix.push(matrixA[i][dIndex] + matrixA[i][i]);
-  //   }
-  //   console.info(matrix);
-  console.info(matrixC);
+  console.log(matrixC);
+}
+export function matrixMultiplcation() {
+  for (let matrixIndex = 0; matrixIndex < matrixA.length; matrixIndex++) {
+    for (
+      let matrixIndex2 = 0;
+      matrixIndex2 < matrixA[matrixIndex].length;
+      matrixIndex2++
+    ) {
+      for (
+        let prodectindex = 0;
+        prodectindex < matrixA[matrixIndex].length;
+        prodectindex++
+      ) {
+        matrixD[matrixIndex2][matrixIndex] =
+          matrixA[matrixIndex][matrixIndex2] *
+          matrixB[matrixIndex2][matrixIndex];
+      }
+    }
+  }
+  console.info(matrixD);
 }
