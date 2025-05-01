@@ -11,16 +11,19 @@
  * Looping
  */
 
-import { ArrayInit } from "./array";
-import { ATMChallange } from "./condition";
-import { functionsScope } from "./functions-scope";
-import { objectsAndArray } from "./object-arrays";
+// import { ArrayInit } from "./array";
+// import { ATMChallange } from "./condition";
+// import { functionsScope } from "./functions-scope";
+// import { forwordDiaganal } from "./matrix";
+import { addingDiaganal } from "./matrix";
 //import { primitiveDataTypes } from "./primitive";
 
 export function trainingInit() {
-  functionsScope();
-  objectsAndArray();
-  //primitiveDataTypes();
-  ATMChallange();
-  ArrayInit();
+  // forwordDiaganal();
+  addingDiaganal();
+  // functionsScope();
+  // objectsAndArray();
+  // //primitiveDataTypes();
+  // ATMChallange();
+  // ArrayInit();
 }
