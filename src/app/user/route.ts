@@ -44,6 +44,8 @@ export async function GET(request: NextRequest) {
   } else return Response.json(users[userIndex]);
 }
 
+// URL: user By the name, user by the location, user by the name and location, []
+
 // Sync Async
 
 // export async function POST(request: Request) {
