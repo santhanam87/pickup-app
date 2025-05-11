@@ -107,49 +107,52 @@ export function ArrayInit() {
     (3,1) (3,2) (3,3)]
  * 
  */
-{
-  console.info(`Addition:`)
- const a = [
-  [1, 2, 3],
-  [1, 3, 4],
-  [1, 3, 4],
-  ];
 
- const b = [
-  [1, 2, 3],
-  [1, 3, 4],
-  [1, 3, 4],
-  ];
-  const matrixC=[];
-  for(let i=0;i<a.length;i++){
-    const add=[];
-    for(let j=0;j<b.length;j++){
-      add.push(a[i][j]+b[i][j]);
-    } 
-    matrixC.push(add);
+const r=[
+  [1,3,3],
+  [2,3,4],
+  [0,2,4],
+];
+const s=[
+  [1,3,3],
+  [2,3,4],
+  [0,2,4],
+];
+/*const t:number[][]=[] ;
+for(let column=0 ; column<3;column++){
+  for(let row=0; row<3;row++){
+    t[column][row]+=r[column][row]*s[column][row];
+    console.info(t[column][row]);
   }
-  console.info(matrixC);}
-  console.info(`Multiplication:`);
-  const a = [
-    [1, 2, 3],
-    [1, 3, 4],
-    [1, 3, 4],
-    ];
-  
-   const b = [
-    [1, 2, 3],
-    [1, 3, 4],
-    [1, 3, 4],
-    ];
-const answer:number[][] =[];
-for(let i=0;i<a.length;i++){
-  answer[i]=[];
-  for(let j=0;j<b.length;j++){
-    answer[i][j]=0;
-    for(let k=0;k<a[i].length;k++){
-      answer[i][j]+=a[i][k]*b[k][j];
-    }
+}*/
+
+const a=[
+  [1,2,3],
+  [1,3,4],
+  [1,3,4]
+]
+const b =[
+  [1,2,3],
+  [1,3,4],
+  [1,4,4]
+]
+const bt=[[0,0,0],[0,0,0],[0,0,0]];
+for (let column=0;column<3;column++){
+  for (let row=0;row<3;row++){
+//(0,0),(0,1),(0,2)
+//(1,0),(1,1),(1,2)
+//(2,0),(2,1),(2,2)
+   bt[column][row]=b[row][column];
+  }}
+
+
+let sum:number=0;
+for(let row=0;row<3;row++){
+  sum=0;
+  for(let column=0;column<3;column++){
+    sum+=a[row][column]*bt[row][column];
   }
-}
-console.info(answer)
+  console.info(sum);
+} 
+console.info(a,bt);
 }
