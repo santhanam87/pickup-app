@@ -10,34 +10,41 @@ type User = {
 // POST = Create
 // Delete = Delete
 const users: User[] = [
-  { name: "santhanam" },
-  { name: "shravan" },
-  { name: "santhanam" },
+  { name: "santhanam" ,location:"USA"},
+  { name: "shravan",location:"Denver"},
+  { name: "Naveeth",location:"India"},
+
 ];
 
 function getUsersByName(name: string): User[] {
-  // name = "santhanam"
   const filteredUsers: User[] = [];
   for (let userIndex = 0; userIndex < users.length; userIndex++) {
-    // 0 1
     const user = users[userIndex];
-    // {name:"santhanam"} {name:"shravan"}
     if (user.name === name) {
-      // {name:santhanam}
       filteredUsers.push(user);
     }
   }
   return filteredUsers;
 }
-
+function getUsersBylocation(location: string): User[] {
+  const filteredlocation: User[] = [];
+  for (let locationIndex = 0; locationIndex < users.length; locationIndex++) {
+    const user = users[locationIndex];
+    if (user.location === location) {
+      filteredlocation.push(user);
+    }
+  }
+  return filteredlocation;
+}
 export async function GET(request: NextRequest) {
   const userIndex = Number(request.nextUrl.searchParams.get("index"));
   const userName = request.nextUrl.searchParams.get("userName");
-  // userIndex 1
-  // userName "santhanam"
-  // false false
-  if (isNaN(userIndex) || users[userIndex] == undefined)
+  const location = request.nextUrl.searchParams.get("location");
+  if (isNaN(userIndex) || users[userIndex] == undefined )
     return Response.json(users);
+  else if(location){
+    return Response.json(getUsersBylocation(location));
+  }
   else if (userName) {
     // true
     return Response.json(getUsersByName(userName));
