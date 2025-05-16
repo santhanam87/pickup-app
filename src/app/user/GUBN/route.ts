@@ -1,18 +1,16 @@
+// GET = Read
+// PUT = Update
+// POST = Create
+// Delete = Delete
 import { NextRequest } from "next/server";
 
 type User = {
   name: string;
   location?: string;
 };
-
-// GET = Read
-// PUT = Update
-// POST = Create
-// Delete = Delete
 const users: User[] = [
-  { name: "santhanam" },
-  { name: "shravan" },
-  { name: "santhanam" },
+  { name: "shravan", location: "USA" },
+  { name: "navith", location: "India" },
 ];
 
 function getUsersByName(name: string): User[] {
@@ -29,17 +27,12 @@ function getUsersByName(name: string): User[] {
   }
   return filteredUsers;
 }
-
 export async function GET(request: NextRequest) {
   const userIndex = Number(request.nextUrl.searchParams.get("index"));
   const userName = request.nextUrl.searchParams.get("userName");
-  // userIndex 1
-  // userName "santhanam"
-  // false false
   if (isNaN(userIndex) || users[userIndex] == undefined)
     return Response.json(users);
   else if (userName) {
-    // true
     return Response.json(getUsersByName(userName));
   } else return Response.json(users[userIndex]);
 }
