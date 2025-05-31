@@ -52,3 +52,5 @@ export async function GET() {
     return Response.json({ error });
   }
 }
+
+// Create a shop to add, edit, delete and list the products
