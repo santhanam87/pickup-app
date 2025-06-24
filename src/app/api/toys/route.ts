@@ -22,10 +22,9 @@ function replaceToy(oldToyName: string, newToyName: string) {
         toysInventory[i] = newToyName;
         resolve(toysInventory);
         i = toysInventory.length;
-      } else {
-        rejects(toysInventory);
       }
     }
+    rejects(toysInventory);
   });
 }
 
