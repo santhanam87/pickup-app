@@ -43,7 +43,7 @@ function connectDB() {
 }
 
 const toyDB: {
-  deleteToy: (startDeleat: number, endDeleat: number) => Promise<string[]>;
+  deleteToy: (startDelete: number, endDelete: number) => Promise<string[]>;
   allToy: () => Promise<string[]>;
   connectDB: () => Promise<boolean>;
   addToy: (toyName: string) => Promise<string[]>;
@@ -55,7 +55,7 @@ const toyDB: {
   connectDB,
   deleteToy,
 };
-
+//adding toy
 export async function PUT(request: NextRequest) {
   try {
     await toyDB.connectDB();
@@ -66,6 +66,7 @@ export async function PUT(request: NextRequest) {
     return Response.json({ error });
   }
 }
+//replasing toy
 export async function POST(request: NextRequest) {
   try {
     await toyDB.connectDB();
@@ -74,11 +75,13 @@ export async function POST(request: NextRequest) {
       requestBody.oldToyName,
       requestBody.newToyName
     );
+    console.info(requestBody);
     return Response.json({ toys });
   } catch (error) {
     return Response.json({ error });
   }
 }
+//showing toys
 export async function GET() {
   try {
     await toyDB.connectDB();
@@ -88,18 +91,17 @@ export async function GET() {
     return Response.json({ error });
   }
 }
+//deleting toys
 export async function DELETE(request: NextRequest) {
   try {
     await toyDB.connectDB();
     const requestBody = await request.json();
     const toys = await toyDB.deleteToy(
-      requestBody.startDeleat,
-      requestBody.endDeleat
+      requestBody.startDelete,
+      requestBody.endDelete
     );
     return Response.json({ toys });
   } catch (error) {
     return Response.json({ error });
   }
 }
-
-// Create a shop to add-done, edit, delete-done? and list-done the products
