@@ -45,13 +45,13 @@ export async function GET() {
 
 export async function DELETE(request: NextRequest) {
   try {
-    const { _id, ...userPayload } = await request.json();
+    const { _id } = await request.json();
     if (!_id) {
       throw new Error("ID is missing");
     }
     await dbConnect();
-    const userUpdateResponse = await User.deleteOne({ _id }, userPayload);
-    return Response.json(userUpdateResponse);
+    const userDeleteResponse = await User.deleteOne({ _id });
+    return Response.json(userDeleteResponse);
   } catch (error) {
     console.info(error);
     return Response.json(error, { status: 500 });
