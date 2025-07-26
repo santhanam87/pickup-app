@@ -16,14 +16,25 @@
 // //   console.log("time");
 // //
 // // }
-
 // export function GET() {
 //   console.info("I love You !!");
 //   return Response.json("I love You !!");
 // }
 // setTimeout(GET, 1000);
-export function GET() {
-  console.info("hi");
-  return Response.json("hi");
+// export function GET() {
+//   console.info("hi");
+//   return Response.json("hi");
+// }
+// console.info(setTimeout(GET, 2500));
+function connectDB(): Promise<{ toy: string }> {
+  // Simulating an asynchronous operation
+  return new Promise((resolve) =>
+    setTimeout(() => {
+      resolve({ toy: "jhon" });
+    }, 1000)
+  );
 }
-console.info(setTimeout(GET, 2500));
+
+connectDB().then(function (dbConnection) {
+  console.info(dbConnection);
+});
