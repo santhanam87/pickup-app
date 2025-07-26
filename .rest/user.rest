@@ -1,0 +1,27 @@
+###
+PUT http://localhost:3000/api/user
+content-type: application/json
+
+{
+   "userName": "shravan",
+   "firstName": "shravan",
+   "lastName": "santhanam",
+   "role": "manager",
+   "dob": "2025-07-26T21:20:51.952Z",
+   "email": "shravan@in.com",
+   "location": "usa"
+}
+
+
+###
+GET http://localhost:3000/api/user
+
+
+###
+POST http://localhost:3000/api/user
+content-type: application/json
+
+{
+     "_id": "688548a139be165399ea7866",
+    "userName": "sshrvan"
+}
