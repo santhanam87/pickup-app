@@ -22,8 +22,9 @@ POST http://localhost:3000/api/user
 content-type: application/json
 
 {
-    "_id": "688548a139be165399ea7866",
-    "userName": "sshrvan"
+    "_id": "68854b749784ec281f80feb0",
+    "userName": "s shrvan",
+    "dob":"2013-10-26T21:41:08.567Z"
 }
 
 ###
@@ -31,5 +32,5 @@ DELETE http://localhost:3000/api/user
 content-type: application/json
 
 {
-    "_id": "688548eef4b90eb70b6a4007"
+    "_id": "688550919784ec281f80feb2"
 }

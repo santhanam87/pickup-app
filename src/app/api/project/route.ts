@@ -1,13 +1,13 @@
 import dbConnect from "@app/mongoose-connection";
 import { NextRequest } from "next/server";
-import User from "@app/model/user.model";
+import projects from "@app/model/project.model";
 
 // CRUD
 export async function PUT(request: NextRequest) {
   try {
-    const userPayload = await request.json();
-    const user = await User.insertOne(userPayload);
-    return Response.json(user);
+    const ProjectsPayload = await request.json();
+    const Projects = await projects.insertOne(ProjectsPayload);
+    return Response.json(Projects);
   } catch (error) {
     return Response.json(error, { status: 500 });
   }
@@ -17,12 +17,15 @@ export async function PUT(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     await dbConnect();
-    const { _id, ...userPayload } = await request.json();
+    const { _id, ...ProjectsPayload } = await request.json();
     if (!_id) {
       throw new Error("id is missing!");
     }
-    const updateUserInfo = await User.updateOne({ _id }, userPayload);
-    return Response.json(updateUserInfo);
+    const updateProjectsInfo = await projects.updateOne(
+      { _id },
+      ProjectsPayload
+    );
+    return Response.json(updateProjectsInfo);
   } catch (e) {
     return Response.json(e, { status: 500 });
   }
@@ -31,8 +34,8 @@ export async function POST(request: NextRequest) {
 export async function GET() {
   try {
     await dbConnect();
-    const users = await User.find({ email: "shravan@in.com" });
-    return Response.json(users);
+    const Projectss = await projects.find({ email: "shravan@in.com" });
+    return Response.json(Projectss);
   } catch (e) {
     return Response.json(e, { status: 500 });
   }
@@ -45,8 +48,8 @@ export async function DELETE(request: NextRequest) {
       throw new Error("ID is missing");
     }
     await dbConnect();
-    const userDeleteResponse = await User.deleteOne({ _id });
-    return Response.json(userDeleteResponse);
+    const ProjectsDeleteResponse = await projects.deleteOne({ _id });
+    return Response.json(ProjectsDeleteResponse);
   } catch (error) {
     console.info(error);
     return Response.json(error, { status: 500 });
