@@ -1,5 +1,5 @@
 ###
-PUT http://localhost:3000/api/project
+PUT http://localhost:3000/api/sprints
 content-type: application/json
 
 { "sprintName":"jk" ,

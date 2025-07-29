@@ -7,7 +7,7 @@ export function shop() {
   const isOnionIsGood = true;
   const tomoto = 3;
   if (onion > 0 || tomoto > 0) {
-    console.info("enter a shope");
+    console.info("enter a shop");
     if (onion > 0 && isOnionIsGood) {
       return "I got oninons";
     } else if (tomoto > 0) {
