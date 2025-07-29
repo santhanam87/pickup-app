@@ -9,5 +9,5 @@ export const sprintsSChema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default (mongoose.models.User as mongoose.Model<unknown>) ||
+export default (mongoose.models.Sprints as mongoose.Model<unknown>) ||
   mongoose.model("Sprints", sprintsSChema);

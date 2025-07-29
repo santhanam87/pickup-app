@@ -9,5 +9,5 @@ export const taskesSChema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default (mongoose.models.User as mongoose.Model<unknown>) ||
+export default (mongoose.models.Tasks as mongoose.Model<unknown>) ||
   mongoose.model("Tasks", taskesSChema);

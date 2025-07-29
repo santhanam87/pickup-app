@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
 export async function GET() {
   try {
     await dbConnect();
-    const Projectss = await projects.find({ email: "shravan@in.com" });
+    const Projectss = await projects.find();
     return Response.json(Projectss);
   } catch (e) {
     return Response.json(e, { status: 500 });

@@ -1,36 +1,29 @@
 ###
-PUT http://localhost:3000/api/user
+PUT http://localhost:3000/api/project
 content-type: application/json
 
-{
-   "userName": "shravan",
-   "firstName": "shravan",
-   "lastName": "santhanam",
-   "role": "manager",
-   "dob": "2025-07-26T21:20:51.952Z",
-   "email": "shravan@in.com",
-   "location": "usa"
+{ "sprintName":"jk" ,
+    "manegerUsername":"jk",
+     "project_id":"9"
 }
 
 
 ###
-GET http://localhost:3000/api/user
+GET http://localhost:3000/api/sprints
 
 
 ###
-POST http://localhost:3000/api/user
+POST http://localhost:3000/api/sprints
 content-type: application/json
 
-{
-    "_id": "68854b749784ec281f80feb0",
-    "userName": "s shrvan",
-    "dob":"2013-10-26T21:41:08.567Z"
+{ "_id": "68883420a370267fb0fb7a36",
+"sprintName":"j"
 }
 
 ###
-DELETE http://localhost:3000/api/user
+DELETE http://localhost:3000/api/sprints
 content-type: application/json
 
 {
-    "_id": "688550919784ec281f80feb2"
+    "_id": "68883420a370267fb0fb7a36"
 }

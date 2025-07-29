@@ -8,5 +8,5 @@ export const projectsSChema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default (mongoose.models.User as mongoose.Model<unknown>) ||
+export default (mongoose.models.projects as mongoose.Model<unknown>) ||
   mongoose.model("projects", projectsSChema);
