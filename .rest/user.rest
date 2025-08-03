@@ -2,14 +2,43 @@
 PUT http://localhost:3000/api/sprints
 content-type: application/json
 
-{ "sprintName":"jk" ,
+{ 
+    "sprintName":"jk" ,
     "manegerUsername":"jk",
-     "project_id":"9"
+    "project_id":"9"
 }
 
 
+// Path param
 ###
-GET http://localhost:3000/api/sprints
+GET http://localhost:3000/api/user/sshrvan
+
+###
+GET http://localhost:3000/api/user/test?userName=sshravan
+
+
+###
+GET http://localhost:3000/api/user/all
+
+
+###
+POST http://localhost:3000/api/user
+content-type: application/json
+
+{
+    "_id": "68854b749784ec281f80feb0",
+    "userName": "sshrvan"
+}
+
+
+
+###
+GET http://localhost:3000/api/user/santhaname
+
+
+
+###
+GET http://localhost:3000/api/sprints/all
 
 
 ###
