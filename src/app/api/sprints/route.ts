@@ -1,13 +1,13 @@
 import dbConnect from "@app/mongoose-connection";
 import { NextRequest } from "next/server";
-import User from "@app/model/user.model";
+import Sprints from "@app/model/sprint.model";
 
 // CRUD
 export async function PUT(request: NextRequest) {
   try {
-    const userPayload = await request.json();
-    const user = await User.insertOne(userPayload);
-    return Response.json(user);
+    const sprintsPayload = await request.json();
+    const sprints = await Sprints.insertOne(sprintsPayload);
+    return Response.json(sprints);
   } catch (error) {
     return Response.json(error, { status: 500 });
   }
@@ -17,12 +17,12 @@ export async function PUT(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     await dbConnect();
-    const { _id, ...userPayload } = await request.json();
+    const { _id, ...sprintsPayload } = await request.json();
     if (!_id) {
       throw new Error("id is missing!");
     }
-    const updateUserInfo = await User.updateOne({ _id }, userPayload);
-    return Response.json(updateUserInfo);
+    const updatesprintsInfo = await Sprints.updateOne({ _id }, sprintsPayload);
+    return Response.json(updatesprintsInfo);
   } catch (e) {
     return Response.json(e, { status: 500 });
   }
@@ -31,8 +31,8 @@ export async function POST(request: NextRequest) {
 export async function GET() {
   try {
     await dbConnect();
-    const users = await User.find({ email: "shravan@in.com" });
-    return Response.json(users);
+    const sprintss = await Sprints.find();
+    return Response.json(sprintss);
   } catch (e) {
     return Response.json(e, { status: 500 });
   }
@@ -45,8 +45,8 @@ export async function DELETE(request: NextRequest) {
       throw new Error("ID is missing");
     }
     await dbConnect();
-    const userDeleteResponse = await User.deleteOne({ _id });
-    return Response.json(userDeleteResponse);
+    const sprintsDeleteResponse = await Sprints.deleteOne({ _id });
+    return Response.json(sprintsDeleteResponse);
   } catch (error) {
     console.info(error);
     return Response.json(error, { status: 500 });

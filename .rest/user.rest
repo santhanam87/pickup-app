@@ -1,0 +1,29 @@
+###
+PUT http://localhost:3000/api/sprints
+content-type: application/json
+
+{ "sprintName":"jk" ,
+    "manegerUsername":"jk",
+     "project_id":"9"
+}
+
+
+###
+GET http://localhost:3000/api/sprints
+
+
+###
+POST http://localhost:3000/api/sprints
+content-type: application/json
+
+{ "_id": "68883420a370267fb0fb7a36",
+"sprintName":"j"
+}
+
+###
+DELETE http://localhost:3000/api/sprints
+content-type: application/json
+
+{
+    "_id": "68883420a370267fb0fb7a36"
+}
