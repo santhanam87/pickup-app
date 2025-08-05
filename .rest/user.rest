@@ -1,20 +1,20 @@
 ###
-PUT http://localhost:3000/api/sprints
+PUT http://localhost:3000/api/user
 content-type: application/json
 
 { 
-    "sprintName":"jk" ,
-    "manegerUsername":"jk",
-    "project_id":"9"
+    "userName": "h",
+    "firstName": "jk",
+    "lastName": "jk",
+    "dob": "2013-10-26T21:41:08.567Z",
+    "role": "jk",
+    "email": "hj"
 }
 
 
 // Path param
 ###
 GET http://localhost:3000/api/user/sshrvan
-
-###
-GET http://localhost:3000/api/user/test?userName=sshravan
 
 
 ###
